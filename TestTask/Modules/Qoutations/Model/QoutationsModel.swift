@@ -32,7 +32,7 @@ class QoutationsModel: WebSocketDelegate {
     }
 
     func subscribeToQoutations() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 3) {
             if self.qoutationsVariable.value.count == 0 {
                 self.subscribeToAll()
             }
